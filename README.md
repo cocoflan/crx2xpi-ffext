@@ -1,7 +1,7 @@
 # crx2xpi-ffext
 Convert Chrome Web Extensions to Firefox
 
-Major differences between two browsers lies in `manifest.json`. This Flask website automatically converts it to make Chrome extensions compatibble with Firefox. You could deploy it on your own web server so as to avoid the redundancy of Firefox's `web-ext` dependencies and share it with others. However, according to Mozilla's suggestion, developers should avoid providing others with their own API Key/Secret to sign an extension. You can sign for them or let them use at their own risk.
+Major differences between two browsers are related to `manifest.json`. This Flask website automatically converts it to make Chrome extensions compatibble with Firefox. You could deploy it on your own web server so as to avoid the redundancy of Firefox's `web-ext` dependencies and share it with others. However, according to Mozilla's suggestion, developers should avoid providing others with their own API Key/Secret to sign an extension. Every website user should use at her own risk.
 
 Quite often, migrating to Firefox involves much more than the JSON work. You should use safe JS libraries, like jQuery 2+, in order to meet Mozilla's validation requirements.
 
@@ -14,7 +14,7 @@ Quite often, migrating to Firefox involves much more than the JSON work. You sho
 
 ## Usage
 
-- POST `/queue` with a file field called `file`:
+- POST `/queue` with a file field called `file`, and `apikey` and `apisecret` fields when necessary:
 	-- a `.json` file, to get processed `manifest.json`.
 	-- a `.zip` or `.crx` file, to try automatically fetch signed XPI.
 	Returns: `id`.
